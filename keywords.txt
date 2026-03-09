@@ -1,0 +1,19 @@
+##################################
+# Classes and Data Types
+##################################
+
+FelixTheCatLED  KEYWORD1
+LED  KEYWORD1
+
+##################################
+# FelixTheCatLED::LED Methods
+##################################
+
+begin  KEYWORD2
+on  KEYWORD2
+off  KEYWORD2
+toggle  KEYWORD2
+isOn  KEYWORD2
+setPin  KEYWORD2
+setActiveLow  KEYWORD2
+isActiveLow  KEYWORD2
