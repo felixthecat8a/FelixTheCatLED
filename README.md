@@ -34,7 +34,7 @@ void loop() {
 ```cpp
 #include <FelixTheCatLED.h>
 
-#define LED_PIN 3
+#define LED_PIN 3 // Choose a PWM Pin denoted by ~
 FelixTheCatLED::PWM led(LED_PIN);
 
 int brightness = 0;
@@ -47,10 +47,9 @@ void setup() {
 void loop() {
   led.setBrightness(brightness);
   brightness += step;
-  if (brightness >= 255) {
-    brightness = 255; step = -1;
-  } else if (brightness <= 0) {
-    brightness = 0; step = 1;
+  if (brightness <= 0 || brightness >= 255) {
+    step = -step; // Reverse direction at limits
+    delay(100); // Add a small delay for visibility
   }
   delay(10);
 }
