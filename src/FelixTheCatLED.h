@@ -4,6 +4,8 @@
 #include <Arduino.h>
 #include "util/Colors.h"
 
+#include "FelixTheCatTimer.h"
+
 #ifdef ARDUINO_ARCH_AVR
   #include <avr/pgmspace.h>
   #define READ_GAMMA(x) pgm_read_byte(&_gammaTable[x])
@@ -131,7 +133,7 @@ namespace FelixTheCatLED {
       uint8_t _brightness;
       bool _gammaEnabled;
       bool _isCommonAnode;
-      
+
       inline uint8_t _applyBrightness(uint8_t c) const {
         return (uint16_t(c) * _brightness) / PWM_MAX;
       }
@@ -156,7 +158,7 @@ namespace FelixTheCatLED {
 
       static const uint8_t _gammaTable[256] PROGMEM;
   };
-  
+
 } // namespace FelixTheCatLED
 
 #endif // FELIX_THE_CAT_8A_LED_H

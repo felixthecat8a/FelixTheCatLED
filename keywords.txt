@@ -3,17 +3,40 @@
 ##################################
 
 FelixTheCatLED  KEYWORD1
-LED  KEYWORD1
+LED KEYWORD1
+Timer KEYWORD1
 
 ##################################
 # FelixTheCatLED::LED Methods
 ##################################
 
-begin  KEYWORD2
+begin KEYWORD2
 on  KEYWORD2
-off  KEYWORD2
+off KEYWORD2
 toggle  KEYWORD2
 isOn  KEYWORD2
 setPin  KEYWORD2
 setActiveLow  KEYWORD2
-isActiveLow  KEYWORD2
+isActiveLow KEYWORD2
+
+##################################
+# FelixTheCatLED::Timer Methods
+##################################
+
+elapsed KEYWORD2
+reset KEYWORD2
+restart KEYWORD2
+tick  KEYWORD2
+isExpired KEYWORD2
+setInterval KEYWORD2
+getInterval KEYWORD2
+pause KEYWORD2
+resume  KEYWORD2
+isPaused  KEYWORD2
+onTick	KEYWORD2
+# repeat  KEYWORD2
+# resetRepeat KEYWORD2
+# remaining KEYWORD2
+# isFinished  KEYWORD2
+setOneShot  KEYWORD2
+resetOneShot  KEYWORD2
