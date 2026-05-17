@@ -61,7 +61,6 @@ namespace FelixTheCatLED {
     static const uint32_t ROSE;
     static const uint32_t CRIMSON;
   };
-
 }
 
 #endif // FELIX_THE_CAT_8A_COLORS_H

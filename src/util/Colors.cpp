@@ -54,5 +54,4 @@ namespace FelixTheCatLED {
   const uint32_t HEX_COLOR::HOT_PINK     = 0xFF00BF;
   const uint32_t HEX_COLOR::ROSE         = 0xFF0080;
   const uint32_t HEX_COLOR::CRIMSON      = 0xFF0040;
-  
 }
