@@ -7,6 +7,14 @@
 
 An Arduino Library for LED Control
 
+## Installation
+
+### Install via ZIP file
+
+1. Download the library *.zip* file from the [latest release](https://github.com/felixthecat8a/FelixTheCatLED/releases/latest/).
+2. In the Arduino IDE, go to `Sketch` > `Include Library` > `Add .ZIP Library...`.
+3. Select the downloaded *.zip* file.
+
 ## Implementation
 
 ### `BlinkLED.ino`
