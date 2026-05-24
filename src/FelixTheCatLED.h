@@ -6,6 +6,7 @@
 #include "anim/Anim.h"
 
 #include "FelixTheCatTimer.h"
+#include "FelixTheCatButton.h"
 
 #ifdef ARDUINO_ARCH_AVR
   #include <avr/pgmspace.h>
