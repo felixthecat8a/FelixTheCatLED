@@ -55,12 +55,11 @@ void setup() {
 
 void loop() {
   led.setBrightness(brightness);
-  brightness += step;
+  brightness = brightness + step;
   if (brightness <= 0 || brightness >= 255) {
-    step = -step; // Reverse direction at limits
-    delay(100); // Add a small delay for visibility
+    step = -step;
   }
-  delay(10);
+  delay(30);
 }
 ```
 
