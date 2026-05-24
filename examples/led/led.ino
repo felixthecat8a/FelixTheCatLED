@@ -18,8 +18,8 @@ int fadeAmount = 5;
 void setup() {
   led.begin();
   led.on();
+
   pwm.begin();
-  pwm.setBrightness(128); // Set brightness to 50%
 
   pwmTimer.onTick([]() {
     pwm.setBrightness(brightness);
@@ -34,5 +34,6 @@ void loop() {
   if (blinkTimer.tick()) {
     led.toggle();
   }
+
   pwmTimer.tick();
 }
