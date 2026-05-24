@@ -20,17 +20,19 @@ void setup() {
   led.on();
   pwm.begin();
   pwm.setBrightness(128); // Set brightness to 50%
+
+  pwmTimer.onTick([]() {
+    pwm.setBrightness(brightness);
+    brightness += fadeAmount;
+    if (brightness <= 0 || brightness >= 255) {
+      fadeAmount = -fadeAmount; // Reverse direction at limits
+    }
+  });
 }
 
 void loop() {
   if (blinkTimer.tick()) {
     led.toggle();
   }
-  if (pwmTimer.tick()) {
-    pwm.setBrightness(brightness);
-    brightness += fadeAmount;
-    if (brightness <= 0 || brightness >= 255) {
-      fadeAmount = -fadeAmount; // Reverse direction at limits
-    }
-  }
+  pwmTimer.tick();
 }
