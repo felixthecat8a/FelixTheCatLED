@@ -5,30 +5,61 @@
 #define BLUE_PIN 11
 FelixTheCatLED::RGB rgb(RED_PIN, GREEN_PIN, BLUE_PIN);
 
-const unsigned long RGB_INTERVAL = 1000;
-FelixTheCatLED::Timer timer(RGB_INTERVAL);
+#define PUSHBUTTON_PIN 2
+FelixTheCatLED::Button button(PUSHBUTTON_PIN);
+
+const int COLOR_COUNT = 25;
+int currentColor = 0;
 
 void setup() {
   rgb.begin();
-  rgb.setBrightness(128); // Set brightness to 50%
+  rgb.setBrightness(77); // Set brightness to 30%
+
+  button.begin();
+  button.setHoldTime(900);
+  button.setMultiClickTime(250);
 }
 
 void loop() {
-  if (timer.tick()) {
-    switchColor();
+  button.update();
+
+  if (button.wasDoubleClicked()) {
+    currentColor = (currentColor - 1 + COLOR_COUNT) % COLOR_COUNT;
+    switchColor(currentColor);
+  } else if (button.wasClicked()) {
+    currentColor = (currentColor + 1) % COLOR_COUNT;
+    switchColor(currentColor);
   }
+
 }
 
-void switchColor() {
-  static uint8_t state = 0;
-  switch (state) {
+void switchColor(int color) {
+  switch (color) {
     case 0: rgb.setRed(); break;
-    case 1: rgb.setGreen(); break;
-    case 2: rgb.setBlue(); break;
-    case 3: rgb.setYellow(); break;
-    case 4: rgb.setCyan(); break;
-    case 5: rgb.setMagenta(); break;
-    default: rgb.setWhite(); break;
+    case 1: rgb.setVermilion(); break;
+    case 2: rgb.setOrange(); break;
+    case 3: rgb.setAmber(); break;
+    case 4: rgb.setYellow(); break;
+    case 5: rgb.setLime(); break;
+    case 6: rgb.setChartreuse(); break;
+    case 7: rgb.setHarlequin(); break;
+    case 8: rgb.setGreen(); break;
+    case 9: rgb.setMint(); break;
+    case 10: rgb.setSpringGreen(); break;
+    case 11: rgb.setTurquoise(); break;
+    case 12: rgb.setCyan(); break;
+    case 13: rgb.setSkyBlue(); break;
+    case 14: rgb.setAzure(); break;
+    case 15: rgb.setCerulean(); break;
+    case 16: rgb.setBlue(); break;
+    case 17: rgb.setIndigo(); break;
+    case 18: rgb.setViolet(); break;
+    case 19: rgb.setPurple(); break;
+    case 20: rgb.setMagenta(); break;
+    case 21: rgb.setPink(); break;
+    case 22: rgb.setRose(); break;
+    case 23: rgb.setCrimson(); break;
+    case 24: rgb.setWhite(); break;
+    default: rgb.off(); break;
   }
-  state = (state + 1) % 7; // Cycle through colors
 }
