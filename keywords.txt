@@ -57,7 +57,7 @@ setTurquoise  KEYWORD2
 setCyan KEYWORD2
 setSkyBlue  KEYWORD2
 setAzure  KEYWORD2
-setSapphire KEYWORD2
+setCerulean KEYWORD2
 setBlue KEYWORD2
 setIndigo KEYWORD2
 setViolet KEYWORD2
@@ -113,10 +113,7 @@ pause KEYWORD2
 resume  KEYWORD2
 isPaused  KEYWORD2
 onTick	KEYWORD2
-# repeat  KEYWORD2
-# resetRepeat KEYWORD2
-# remaining KEYWORD2
-# isFinished  KEYWORD2
+
 setOneShot  KEYWORD2
 resetOneShot  KEYWORD2
 

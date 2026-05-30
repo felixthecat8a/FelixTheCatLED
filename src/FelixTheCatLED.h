@@ -3,10 +3,9 @@
 
 #include <Arduino.h>
 #include "util/Colors.h"
-#include "anim/Anim.h"
-
 #include "FelixTheCatTimer.h"
 #include "FelixTheCatButton.h"
+#include "anim/Anim.h"
 
 #ifdef ARDUINO_ARCH_AVR
   #include <avr/pgmspace.h>

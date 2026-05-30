@@ -19,19 +19,11 @@ namespace FelixTheCatLED {
     inline bool tick() {
       if (_paused) return false;
 
-      // if (_repeatCount >= 0 && _runCount >= _repeatCount) {
-      //   return false;
-      // }
-
       if (_oneShot && _fired) return false;
 
       unsigned long now = millis();
 
       if (now - _startMillis >= _interval) {
-        // _startMillis += _interval;
-
-        // _runCount++;
-
         if (_oneShot) {
           _fired = true;
         } else {
@@ -75,25 +67,6 @@ namespace FelixTheCatLED {
 
     inline void onTick(TimerCallback callback) { _callback = callback; }
 
-    // inline void repeat(int count) {
-    //   _repeatCount = count;
-    //   _runCount = 0;
-    // }
-
-    // inline void resetRepeat() {
-    //   _runCount = 0;
-    //   _startMillis = millis();
-    // }
-
-    // inline int remaining() const {
-    //   if (_repeatCount < 0) return -1; // infinite
-    //   return _repeatCount - _runCount;
-    // }
-
-    // inline bool isFinished() const {
-    //   return (_repeatCount >= 0 && _runCount >= _repeatCount);
-    // }
-
     inline void setOneShot(bool enable = true) {
       _oneShot = enable;
     }
@@ -109,8 +82,7 @@ namespace FelixTheCatLED {
     bool _paused;
     unsigned long _pauseStart;
     TimerCallback _callback;
-    // int _repeatCount = -1; // -1 = infinite (default behavior)
-    // int _runCount = 0;
+
     bool _oneShot = false;
     bool _fired = false;
   };
