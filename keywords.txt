@@ -6,7 +6,8 @@ FelixTheCatLED  KEYWORD1
 LED KEYWORD1
 PWM KEYWORD1
 RGB KEYWORD1
-Timer KEYWORD1
+Button  KEYWORD1
+Time KEYWORD1
 
 ##################################
 # FelixTheCatLED::LED Methods
@@ -97,6 +98,22 @@ MAGENTA LITERAL1
 HOT_PINK  LITERAL1
 ROSE  LITERAL1
 CRIMSON LITERAL1
+
+##################################
+# FelixTheCatLED::Button Methods
+##################################
+
+isDown  KEYWORD2
+isHeld  KEYWORD2
+poll  KEYWORD2
+wasPressed  KEYWORD2
+wasReleased KEYWORD2
+wasClicked  KEYWORD2
+wasDoubleClicked  KEYWORD2
+wasTripleClicked  KEYWORD2
+wasHeld KEYWORD2
+setHoldTime KEYWORD2
+setMultiClickTime KEYWORD2
 
 ##################################
 # FelixTheCatLED::Timer Methods
