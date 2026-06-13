@@ -84,44 +84,45 @@ namespace FelixTheCatLED {
 
       void begin();
 
-      void setRGB(const uint8_t rgb[3]);
+      void setRGB(const RGB_Color& c);
       void setRGB(uint8_t red, uint8_t green, uint8_t blue);
-      void setHex(uint32_t hex);
+      void setRGB(const uint8_t rgb[3]);
+      void setRGB(uint32_t hex);
       void setBrightness(uint8_t brightness);
-      uint8_t* getRGB() { return _RGB; }
-      const uint8_t* getRGB() const { return _RGB; }
-      uint8_t getRed() const { return _RGB[0]; }
-      uint8_t getGreen() const { return _RGB[1]; }
-      uint8_t getBlue() const { return _RGB[2]; }
+
+      uint8_t getRed() const { return _color.r; }
+      uint8_t getGreen() const { return _color.g; }
+      uint8_t getBlue() const { return _color.b; }
+
       uint32_t getHex() const;
       String getHexString() const;
 
-      void off() { setRGB(RGB_COLOR::BLACK); }
-      void setWhite() { setRGB(RGB_COLOR::WHITE); }
-      void setRed() { setRGB(RGB_COLOR::RED); }
-      void setVermilion() { setRGB(RGB_COLOR::VERMILION); }
-      void setOrange() { setRGB(RGB_COLOR::ORANGE); }
-      void setAmber() { setRGB(RGB_COLOR::AMBER); }
-      void setYellow() { setRGB(RGB_COLOR::YELLOW); }
-      void setLime() { setRGB(RGB_COLOR::LIME); }
-      void setChartreuse() { setRGB(RGB_COLOR::CHARTREUSE); }
-      void setHarlequin() { setRGB(RGB_COLOR::HARLEQUIN); }
-      void setGreen() { setRGB(RGB_COLOR::GREEN); }
-      void setMint() { setRGB(RGB_COLOR::MINT); }
-      void setSpringGreen() { setRGB(RGB_COLOR::SPRING_GREEN); }
-      void setTurquoise() { setRGB(RGB_COLOR::TURQUOISE); }
-      void setCyan() { setRGB(RGB_COLOR::CYAN); }
-      void setSkyBlue() { setRGB(RGB_COLOR::SKY_BLUE); }
-      void setAzure() { setRGB(RGB_COLOR::AZURE); }
-      void setCerulean() { setRGB(RGB_COLOR::CERULEAN); }
-      void setBlue() { setRGB(RGB_COLOR::BLUE); }
-      void setIndigo() { setRGB(RGB_COLOR::INDIGO); }
-      void setViolet() { setRGB(RGB_COLOR::VIOLET); }
-      void setPurple() { setRGB(RGB_COLOR::PURPLE); }
-      void setMagenta() { setRGB(RGB_COLOR::MAGENTA); }
-      void setPink() { setRGB(RGB_COLOR::HOT_PINK); }
-      void setRose() { setRGB(RGB_COLOR::ROSE); }
-      void setCrimson() { setRGB(RGB_COLOR::CRIMSON); }
+      void off() { setRGB(ColorRGB::BLACK); }
+      void setWhite() { setRGB(ColorRGB::WHITE); }
+      void setRed() { setRGB(ColorRGB::RED); }
+      void setVermilion() { setRGB(ColorRGB::VERMILION); }
+      void setOrange() { setRGB(ColorRGB::ORANGE); }
+      void setAmber() { setRGB(ColorRGB::AMBER); }
+      void setYellow() { setRGB(ColorRGB::YELLOW); }
+      void setLime() { setRGB(ColorRGB::LIME); }
+      void setChartreuse() { setRGB(ColorRGB::CHARTREUSE); }
+      void setHarlequin() { setRGB(ColorRGB::HARLEQUIN); }
+      void setGreen() { setRGB(ColorRGB::GREEN); }
+      void setMint() { setRGB(ColorRGB::MINT); }
+      void setSpringGreen() { setRGB(ColorRGB::SPRING_GREEN); }
+      void setTurquoise() { setRGB(ColorRGB::TURQUOISE); }
+      void setCyan() { setRGB(ColorRGB::CYAN); }
+      void setSkyBlue() { setRGB(ColorRGB::SKY_BLUE); }
+      void setAzure() { setRGB(ColorRGB::AZURE); }
+      void setSapphire() { setRGB(ColorRGB::SAPPHIRE); }
+      void setBlue() { setRGB(ColorRGB::BLUE); }
+      void setIndigo() { setRGB(ColorRGB::INDIGO); }
+      void setViolet() { setRGB(ColorRGB::VIOLET); }
+      void setPurple() { setRGB(ColorRGB::PURPLE); }
+      void setMagenta() { setRGB(ColorRGB::MAGENTA); }
+      void setPink() { setRGB(ColorRGB::HOT_PINK); }
+      void setRose() { setRGB(ColorRGB::ROSE); }
+      void setCrimson() { setRGB(ColorRGB::CRIMSON); }
 
       void setHSV(int hue, float sat, float val);
       void setCMYK(float cyan, float magenta, float yellow, float key);
@@ -130,7 +131,7 @@ namespace FelixTheCatLED {
     private:
       PWM _rPWM, _gPWM, _bPWM;
 
-      uint8_t _RGB[3];
+      RGB_Color _color;
       uint8_t _brightness;
       bool _gammaEnabled;
       bool _isCommonAnode;
@@ -150,7 +151,7 @@ namespace FelixTheCatLED {
       }
 
       inline void _showRGB(uint8_t r, uint8_t g, uint8_t b) {
-        _RGB[0] = r; _RGB[1] = g; _RGB[2] = b;
+        _color = {r, g, b};
 
         _rPWM.setBrightness(_process(r));
         _gPWM.setBrightness(_process(g));

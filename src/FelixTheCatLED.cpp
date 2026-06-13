@@ -1,7 +1,7 @@
 #include "FelixTheCatLED.h"
 
 namespace FelixTheCatLED {
-  
+
   /* DIGITAL LED */
 
   LED::LED(uint8_t pin) : _pin(pin), _state(false), _activeLow(false) {}
@@ -85,7 +85,7 @@ namespace FelixTheCatLED {
       #endif
     #endif
   }
-  
+
   void PWM::begin() {
     if (_type == AUTO_LED) {
       #ifdef ESP32
@@ -133,11 +133,11 @@ namespace FelixTheCatLED {
   void PWM::off() {
     setBrightness(0);
   }
-  
+
   void PWM::toggle() {
     setBrightness(_state ? 0 : PWM_MAX);
   }
-  
+
   void PWM::setPin(uint8_t pin) {
     #ifdef ESP32
       #if ESP_ARDUINO_VERSION_MAJOR < 3
@@ -155,7 +155,7 @@ namespace FelixTheCatLED {
     _activeLow = activeLow;
     setBrightness(_brightness);
   }
-  
+
   void PWM::_writeRaw(uint8_t value) {
     switch (_type) {
       case GENERIC_LED:
@@ -173,16 +173,13 @@ namespace FelixTheCatLED {
         break;
     }
   }
-  
+
   /* RGB LED */
-  
+
   RGB::RGB(uint8_t rPin, uint8_t gPin, uint8_t bPin, bool commonAnode,
     LED_type type, int8_t rCh, int8_t gCh, int8_t bCh)
     : _rPWM(rPin, type, rCh), _gPWM(gPin, type, gCh), _bPWM(bPin, type, bCh),
-      _isCommonAnode(commonAnode), _brightness(255), _gammaEnabled(false)
-  {
-    _RGB[0] = _RGB[1] = _RGB[2] = 0;
-  }
+      _isCommonAnode(commonAnode), _brightness(255), _gammaEnabled(false) {}
 
   void RGB::begin() {
     _rPWM.begin();
@@ -196,25 +193,29 @@ namespace FelixTheCatLED {
     _showRGB(0, 0, 0);
   }
 
-  void RGB::setRGB(const uint8_t rgb[3]) {
-    _showRGB(rgb[0], rgb[1], rgb[2]);
+  void RGB::setRGB(const RGB_Color& c) {
+    _showRGB(c.r, c.g, c.b);
   }
 
   void RGB::setRGB(uint8_t red, uint8_t green, uint8_t blue) {
     _showRGB(red, green, blue);
   }
 
-  void RGB::setHex(uint32_t hex) {
+  void RGB::setRGB(const uint8_t rgb[3]) {
+    _showRGB(rgb[0], rgb[1], rgb[2]);
+  }
+
+  void RGB::setRGB(uint32_t hex) {
     _showRGB((hex >> 16) & 0xFF, (hex >> 8) & 0xFF, hex & 0xFF);
   }
 
   void RGB::setBrightness(uint8_t brightness) {
     _brightness = constrain(brightness, 0, 255);
-    _showRGB(_RGB[0], _RGB[1], _RGB[2]);
+    _showRGB(_color.r, _color.g, _color.b);
   }
 
   uint32_t RGB::getHex() const {
-    return ((uint32_t)_RGB[0] << 16) | ((uint32_t)_RGB[1] << 8) | (uint32_t)_RGB[2];
+    return _color.hex();
   }
 
   String RGB::getHexString() const {
@@ -259,7 +260,7 @@ namespace FelixTheCatLED {
 
   void RGB::setGammaCorrection(bool enabled) {
     _gammaEnabled = enabled;
-    _showRGB(_RGB[0], _RGB[1], _RGB[2]);
+    _showRGB(_color.r, _color.g, _color.b);
   }
 
   const uint8_t RGB::_gammaTable[256] = {
