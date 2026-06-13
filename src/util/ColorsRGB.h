@@ -33,34 +33,6 @@ namespace FelixTheCatLED {
     static const uint8_t CRIMSON[3];
   };
 
-  struct HEX_COLOR {
-    static const uint32_t BLACK;
-    static const uint32_t WHITE;
-    static const uint32_t RED;
-    static const uint32_t VERMILION;
-    static const uint32_t ORANGE;
-    static const uint32_t AMBER;
-    static const uint32_t YELLOW;
-    static const uint32_t LIME;
-    static const uint32_t CHARTREUSE;
-    static const uint32_t HARLEQUIN;
-    static const uint32_t GREEN;
-    static const uint32_t MINT;
-    static const uint32_t SPRING_GREEN;
-    static const uint32_t TURQUOISE;
-    static const uint32_t CYAN;
-    static const uint32_t SKY_BLUE;
-    static const uint32_t AZURE;
-    static const uint32_t CERULEAN;
-    static const uint32_t BLUE;
-    static const uint32_t INDIGO;
-    static const uint32_t VIOLET;
-    static const uint32_t PURPLE;
-    static const uint32_t MAGENTA;
-    static const uint32_t HOT_PINK;
-    static const uint32_t ROSE;
-    static const uint32_t CRIMSON;
-  };
 }
 
 #endif // FELIX_THE_CAT_8A_COLORS_H

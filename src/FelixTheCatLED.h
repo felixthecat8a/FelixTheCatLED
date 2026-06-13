@@ -2,7 +2,7 @@
 #define FELIX_THE_CAT_8A_LED_H
 
 #include <Arduino.h>
-#include "util/Colors.h"
+#include "util/ColorsRGB.h"
 #include "FelixTheCatTimer.h"
 #include "FelixTheCatButton.h"
 #include "anim/Anim.h"
