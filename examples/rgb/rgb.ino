@@ -50,7 +50,7 @@ void switchColor(int color) {
     case 12: rgb.setCyan(); break;
     case 13: rgb.setSkyBlue(); break;
     case 14: rgb.setAzure(); break;
-    case 15: rgb.setCerulean(); break;
+    case 15: rgb.setSapphire(); break;
     case 16: rgb.setBlue(); break;
     case 17: rgb.setIndigo(); break;
     case 18: rgb.setViolet(); break;
