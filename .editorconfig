@@ -5,6 +5,8 @@
 # Note: indent style for each file type is defined even when it matches the universal config in order to make it clear
 # that this type has an official style.
 
+root = true
+
 [*]
 charset = utf-8
 end_of_line = lf
