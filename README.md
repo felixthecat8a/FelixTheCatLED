@@ -19,7 +19,7 @@ An Arduino Library for LED Control
 ### Updating the Library
 
 To update the library:
-1. Delete the existing ***Felix8A*** folder from your libraries directory: ***Documents*** > ***Arduino*** > ***libraries*** > ***Felix8A***
+1. Delete the existing ***FelixTheCatLED*** folder from your libraries directory: ***Documents*** > ***Arduino*** > ***libraries*** > ***FelixTheCatLED***
 2. Follow the installation steps above to install the latest version.
 
 ## Implementation
