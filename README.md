@@ -12,9 +12,15 @@ An Arduino Library for LED Control
 
 ### Install via ZIP file
 
-1. Download the library *.zip* file from the [latest release](https://github.com/felixthecat8a/FelixTheCatLED/releases/latest/).
-2. In the Arduino IDE, go to `Sketch` > `Include Library` > `Add .ZIP Library...`.
+1. Download the *.zip* file of the [latest release](https://github.com/felixthecat8a/FelixTheCatLED/releases/latest/).
+2. In the **Arduino IDE**, go to ***Sketch*** > ***Include Library*** > ***Add .ZIP Library...***.
 3. Select the downloaded *.zip* file.
+
+### Updating the Library
+
+To update the library:
+1. Delete the existing ***Felix8A*** folder from your libraries directory: ***Documents*** > ***Arduino*** > ***libraries*** > ***Felix8A***
+2. Follow the installation steps above to install the latest version.
 
 ## Implementation
 
