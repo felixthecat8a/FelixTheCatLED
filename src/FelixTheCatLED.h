@@ -100,29 +100,17 @@ namespace FelixTheCatLED {
       void off() { setRGB(ColorRGB::BLACK); }
       void setWhite() { setRGB(ColorRGB::WHITE); }
       void setRed() { setRGB(ColorRGB::RED); }
-      void setVermilion() { setRGB(ColorRGB::VERMILION); }
       void setOrange() { setRGB(ColorRGB::ORANGE); }
-      void setAmber() { setRGB(ColorRGB::AMBER); }
       void setYellow() { setRGB(ColorRGB::YELLOW); }
       void setLime() { setRGB(ColorRGB::LIME); }
-      void setChartreuse() { setRGB(ColorRGB::CHARTREUSE); }
-      void setHarlequin() { setRGB(ColorRGB::HARLEQUIN); }
       void setGreen() { setRGB(ColorRGB::GREEN); }
-      void setMint() { setRGB(ColorRGB::MINT); }
-      void setSpringGreen() { setRGB(ColorRGB::SPRING_GREEN); }
-      void setTurquoise() { setRGB(ColorRGB::TURQUOISE); }
+      void setSpring() { setRGB(ColorRGB::SPRING); }
       void setCyan() { setRGB(ColorRGB::CYAN); }
-      void setSkyBlue() { setRGB(ColorRGB::SKY_BLUE); }
       void setAzure() { setRGB(ColorRGB::AZURE); }
-      void setSapphire() { setRGB(ColorRGB::SAPPHIRE); }
       void setBlue() { setRGB(ColorRGB::BLUE); }
-      void setIndigo() { setRGB(ColorRGB::INDIGO); }
       void setViolet() { setRGB(ColorRGB::VIOLET); }
-      void setPurple() { setRGB(ColorRGB::PURPLE); }
       void setMagenta() { setRGB(ColorRGB::MAGENTA); }
-      void setPink() { setRGB(ColorRGB::HOT_PINK); }
       void setRose() { setRGB(ColorRGB::ROSE); }
-      void setCrimson() { setRGB(ColorRGB::CRIMSON); }
 
       void setHSV(int hue, float sat, float val);
       void setCMYK(float cyan, float magenta, float yellow, float key);
