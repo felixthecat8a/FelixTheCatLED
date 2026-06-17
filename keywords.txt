@@ -1,143 +1,111 @@
 ##################################
 # Classes and Data Types
 ##################################
-
-FelixTheCatLED  KEYWORD1
-LED KEYWORD1
-PWM KEYWORD1
-RGB KEYWORD1
-Button  KEYWORD1
-Time KEYWORD1
+FelixTheCatLED	KEYWORD1
+LED	KEYWORD1
+PWM	KEYWORD1
+RGB	KEYWORD1
+Button	KEYWORD1
+Time	KEYWORD1
 
 ##################################
 # FelixTheCatLED::LED Methods
 ##################################
-
-begin KEYWORD2
-on  KEYWORD2
-off KEYWORD2
-toggle  KEYWORD2
-isOn  KEYWORD2
-setPin  KEYWORD2
-getPin  KEYWORD2
-setActiveLow  KEYWORD2
-isActiveLow KEYWORD2
+begin	KEYWORD2
+on	KEYWORD2
+off	KEYWORD2
+toggle	KEYWORD2
+isOn	KEYWORD2
+setPin	KEYWORD2
+getPin	KEYWORD2
+setActiveLow	KEYWORD2
+isActiveLow	KEYWORD2
 
 ##################################
 # FelixTheCatLED::PWM Methods
 ##################################
-
-setBrightness KEYWORD2
-getBrightness KEYWORD2
+setBrightness	KEYWORD2
+getBrightness	KEYWORD2
 
 ##################################
 # FelixTheCatLED::RGB Methods
 ##################################
-
-setRGB  KEYWORD2
-getRGB  KEYWORD2
-getHex  KEYWORD2
-getHexString  KEYWORD2
-setHSV  KEYWORD2
-setGammaCorrection  KEYWORD2
-setCMYK KEYWORD2
-setWhite  KEYWORD2
-setRed  KEYWORD2
-setVermilion  KEYWORD2
-setOrange KEYWORD2
-setAmber  KEYWORD2
-setYellow KEYWORD2
-setLime KEYWORD2
-setChartreuse KEYWORD2
-setHarlequin  KEYWORD2
-setGreen  KEYWORD2
-setMint KEYWORD2
-setSpringGreen  KEYWORD2
-setTurquoise  KEYWORD2
-setCyan KEYWORD2
-setSkyBlue  KEYWORD2
-setAzure  KEYWORD2
-setSapphire KEYWORD2
-setBlue KEYWORD2
-setIndigo KEYWORD2
-setViolet KEYWORD2
-setPurple KEYWORD2
-setMagenta  KEYWORD2
-setPink KEYWORD2
-setRose KEYWORD2
-setCrimson  KEYWORD2
+setRGB	KEYWORD2
+getRGB	KEYWORD2
+getHex	KEYWORD2
+getHexString	KEYWORD2
+setHSV	KEYWORD2
+setGammaCorrection	KEYWORD2
+setCMYK	KEYWORD2
+setWhite	KEYWORD2
+setRed	KEYWORD2
+setOrange	KEYWORD2
+setYellow	KEYWORD2
+setLime	KEYWORD2
+setGreen	KEYWORD2
+setSpring	KEYWORD2
+setCyan	KEYWORD2
+setAzure	KEYWORD2
+setBlue	KEYWORD2
+setViolet	KEYWORD2
+setMagenta	KEYWORD2
+setRose	KEYWORD2
 
 ##################################
 # Color Constants
 ##################################
-
-BLACK LITERAL1
-WHITE LITERAL1
-RED LITERAL1
-VERMILION LITERAL1
-ORANGE  LITERAL1
-AMBER LITERAL1
-YELLOW  LITERAL1
-LIME  LITERAL1
-CHARTREUSE  LITERAL1
-HARLEQUIN LITERAL1
-GREEN LITERAL1
-MINT  LITERAL1
-SPRING_GREEN  LITERAL1
-TURQUOISE LITERAL1
-CYAN  LITERAL1
-SKY_BLUE  LITERAL1
-AZURE LITERAL1
-SAPPHIRE  LITERAL1
-BLUE  LITERAL1
-INDIGO  LITERAL1
-VIOLET  LITERAL1
-PURPLE  LITERAL1
-MAGENTA LITERAL1
-HOT_PINK  LITERAL1
-ROSE  LITERAL1
-CRIMSON LITERAL1
+BLACK	LITERAL1
+WHITE	LITERAL1
+RED	LITERAL1
+ORANGE	LITERAL1
+YELLOW	LITERAL1
+LIME	LITERAL1
+GREEN	LITERAL1
+SPRING	LITERAL1
+CYAN	LITERAL1
+AZURE	LITERAL1
+BLUE	LITERAL1
+VIOLET	LITERAL1
+MAGENTA	LITERAL1
+ROSE	LITERAL1
 
 ##################################
 # FelixTheCatLED::Button Methods
 ##################################
-
-isDown  KEYWORD2
-isHeld  KEYWORD2
-poll  KEYWORD2
-wasPressed  KEYWORD2
-wasReleased KEYWORD2
-wasClicked  KEYWORD2
-wasDoubleClicked  KEYWORD2
-wasTripleClicked  KEYWORD2
-wasHeld KEYWORD2
-setHoldTime KEYWORD2
-setMultiClickTime KEYWORD2
+isDown	KEYWORD2
+isHeld	KEYWORD2
+poll	KEYWORD2
+wasPressed	KEYWORD2
+wasReleased	KEYWORD2
+wasClicked	KEYWORD2
+wasDoubleClicked	KEYWORD2
+wasTripleClicked	KEYWORD2
+wasHeld	KEYWORD2
+setHoldTime	KEYWORD2
+setMultiClickTime	KEYWORD2
 
 ##################################
 # FelixTheCatLED::Timer Methods
 ##################################
-
-elapsed KEYWORD2
-reset KEYWORD2
-restart KEYWORD2
-tick  KEYWORD2
-isExpired KEYWORD2
-setInterval KEYWORD2
-getInterval KEYWORD2
-pause KEYWORD2
-resume  KEYWORD2
-isPaused  KEYWORD2
+elapsed	KEYWORD2
+reset	KEYWORD2
+restart	KEYWORD2
+tick	KEYWORD2
+isExpired	KEYWORD2
+setInterval	KEYWORD2
+getInterval	KEYWORD2
+pause	KEYWORD2
+resume	KEYWORD2
+isPaused	KEYWORD2
 onTick	KEYWORD2
 
-setOneShot  KEYWORD2
-resetOneShot  KEYWORD2
+setOneShot	KEYWORD2
+resetOneShot	KEYWORD2
 
 ##################################
 # FelixTheCatLED::Anim
 ##################################
-
-PhaseTimer  KEYWORD1
-AnimBlinkLED  KEYWORD1
-AnimFadeLED KEYWORD1
-AnimColorwheel  KEYWORD1
+PhaseTimer	KEYWORD1
+AnimBlinkLED	KEYWORD1
+AnimFadeLED	KEYWORD1
+AnimColorwheel	KEYWORD1
