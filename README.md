@@ -2,9 +2,9 @@
 
 ![GitHub Release](https://img.shields.io/github/v/release/felixthecat8a/FelixTheCatLED?logo=arduino&color=00878F)
 ![GitHub License](https://img.shields.io/github/license/felixthecat8a/FelixTheCatLED)
+![GitHub repo file or directory count](https://img.shields.io/github/directory-file-count/felixthecat8a/FelixTheCatLED)
 ![GitHub repo size](https://img.shields.io/github/repo-size/felixthecat8a/FelixTheCatLED)
 ![GitHub code size in bytes](https://img.shields.io/github/languages/code-size/felixthecat8a/FelixTheCatLED)
-![GitHub repo file or directory count](https://img.shields.io/github/directory-file-count/felixthecat8a/FelixTheCatLED)
 ![GitHub top language](https://img.shields.io/github/languages/top/felixthecat8a/FelixTheCatLED?color=%2300599C&logo=c%2B%2B)
 
 An Arduino Library for LED Control
