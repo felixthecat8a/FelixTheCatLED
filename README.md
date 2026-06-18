@@ -7,6 +7,12 @@
 ![GitHub repo file or directory count](https://img.shields.io/github/directory-file-count/felixthecat8a/FelixTheCatLED)
 ![GitHub top language](https://img.shields.io/github/languages/top/felixthecat8a/FelixTheCatLED?color=%2300599C&logo=c%2B%2B)
 
+![GitHub Created At](https://img.shields.io/github/created-at/felixthecat8a/FelixTheCatLED)
+![GitHub Release Date](https://img.shields.io/github/release-date/felixthecat8a/FelixTheCatLED)
+![GitHub commit activity](https://img.shields.io/github/commit-activity/m/felixthecat8a/LCD_BacklightRGB)
+![GitHub commits since latest release](https://img.shields.io/github/commits-since/felixthecat8a/FelixTheCatLED/latest)
+![GitHub last commit](https://img.shields.io/github/last-commit/felixthecat8a/FelixTheCatLED)
+
 An Arduino Library for LED Control
 
 ## Installation
