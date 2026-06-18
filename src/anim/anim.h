@@ -30,29 +30,29 @@ namespace FelixTheCatLED {
   class AnimFadeLED {
   public:
     AnimFadeLED(FadeTarget& target, uint32_t period, uint8_t minB = 0, uint8_t maxB = 255.0f)
-      : _target(target), _timer(period), _min(minB), _max(maxB) {}
+      : _target(target), _timer(period), _minVal(minB), _maxVal(maxB) {}
 
     void update() {
       float t = _timer.normalized();
       float v = (1.0f - cosf(t * TWO_PI)) * 0.5f;
-      uint8_t brightness = _min + (uint8_t)(v * (_max - _min));
+      uint8_t brightness = _minVal + (uint8_t)(v * (_maxVal - _minVal));
       _target.setBrightness(brightness);
     }
 
     void setMin(uint8_t minBrightness) {
-      _min = constrain(minBrightness, 0, 255.0f);
-      if (_min > _max) _max = _min;
+      _minVal = constrain(minBrightness, 0, 255.0f);
+      if (_minVal > _maxVal) _maxVal = _minVal;
     }
 
     void setMax(uint8_t maxBrightness) {
-      _max = constrain(maxBrightness, 0, 255.0f);
-      if (_max < _min) _min = _max;
+      _maxVal = constrain(maxBrightness, 0, 255.0f);
+      if (_maxVal < _minVal) _minVal = _maxVal;
     }
 
   private:
     FadeTarget& _target;
     PhaseTimer _timer;
-    uint8_t _min, _max;
+    uint8_t _minVal, _maxVal;
   };
 
   template <typename RGBType>
