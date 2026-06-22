@@ -1,7 +1,6 @@
 # `LightString.ino`
 
-An Arduino sketch for controlling colors and animations on a WS2812 LED string using the `Felix8A` and `FelixTheCatLED` libraries.
-Note: Math and Time helpers are in development
+An Arduino sketch for controlling colors and animations on a WS2812 LED string using the `FelixTheCatLED` and `Felix8A` libraries.
 
 ## Sketch & Hardware Setup using `FelixTheCatLED::Button`
 ```cpp
@@ -20,7 +19,7 @@ FelixTheCatLED::Button button(BUTTON_PIN);
 Adafruit_NeoPixel* lightString = nullptr;
 ```
 
-### Color Palette Setup using `Felix8A::Color` & `Felix8A::Palette`
+### Color Array Setup using `Felix8A::Palette`
 ```cpp
 /***** Classic Christmas Tree Light Multi-color Palette *****/
 constexpr uint32_t color0 = Felix8A::Color::RED;
@@ -30,12 +29,8 @@ constexpr uint32_t color3 = Felix8A::Color::BLUE;
 constexpr uint32_t color4 = Felix8A::Color::GRAY;
 constexpr uint32_t colorArray[] = { color0, color1, color2, color3, color4 };
 constexpr Felix8A::Palette ColorPalette(colorArray);
-
 /***** Preset Classic Christmas Tree Light Multi-color Palette *****/
 //constexpr Felix8A::Palette ColorPalette(Felix8A::Sets::ChristmasTree5);
-
-/***** Animation Speed for Color Array *****/
-const unsigned long animInterval = 200;
 ```
 
 ### Initial Variables for Solid Color Palette
@@ -51,7 +46,7 @@ bool stateUpdated = true;
 
 ### EEPROM Setup using `Felix8A::Math::wrap`
 ```cpp
-/***** EEPROM Setup *****/
+/***** EEPROM  Setup *****/
 #define EEPROM_MODE_ADDR 0
 #define EEPROM_COLOR_ADDR 1
 
@@ -69,8 +64,6 @@ void saveSettings() {
 
   EEPROM.update(EEPROM_MODE_ADDR, currentMode);
   EEPROM.update(EEPROM_COLOR_ADDR, currentColor);
-
-  stateUpdated = true;
 }
 ```
 
@@ -127,6 +120,9 @@ void solidColor() {
 ```cpp
 void setColorWhiteGradient(uint32_t color, int step) {
   uint32_t white = Felix8A::Color::rgb(150, 150, 150);
+  // uint32_t blend1 = Felix8A::Color::blend(color, white, 64);
+  // uint32_t blend2 = Felix8A::Color::blend(color, white, 128);
+  // uint32_t blend3 = Felix8A::Color::blend(color, white, 192);
   uint32_t blend1 = Felix8A::Palette::blend(color, white, 64);
   uint32_t blend2 = Felix8A::Palette::blend(color, white, 128);
   uint32_t blend3 = Felix8A::Palette::blend(color, white, 192);
@@ -176,7 +172,9 @@ void solidColorGradient() {
 }
 ```
 
-### Multiple Color Setting Functions using `Felix8A::Time`
+## Multi-color Functions
+
+### Multi-color Setting Functions using `Felix8A::Time`
 ```cpp
 void setMultiColor(int step) {
   for (int i = 0; i < lightString->numPixels(); i++) {
@@ -203,9 +201,9 @@ void multiColor() {
 }
 ```
 
-### Color Palette Twinkle Animation Function
+### Multi-color Twinkle Animation Function
 ```cpp
-void twinkleColorPalette() {
+void multicolorTwinkle() {
   static unsigned long lastTwinkle = 0;
 
   if (Felix8A::Time::every(100, lastTwinkle)) {
@@ -219,8 +217,8 @@ void twinkleColorPalette() {
     int newPixels = random(1, 4);
     for (int i = 0; i < newPixels; i++) {
       int pixel = random(count);
-      int rand = random(ColorPalette.count());
-      lightString->setPixelColor(pixel, ColorPalette[rand]);
+      int randColor = random(ColorPalette.count());
+      lightString->setPixelColor(pixel, ColorPalette[randColor]);
     }
 
     lightString->show();
@@ -230,7 +228,7 @@ void twinkleColorPalette() {
 
 ## Mode Switch Code
 
-### Light Off Function
+### Lights Off Function
 ```cpp
 void lightsOff() {
   if (stateUpdated) {
@@ -239,14 +237,14 @@ void lightsOff() {
 }
 ```
 
-## Set & Update Function Switch
+### Set & Update Function Switch
 ```cpp
 void updateMode() {
   switch (currentMode) {
     case 0: solidColor(); break;
     case 1: solidColorGradient(); break;
     case 2: multiColor(); break;
-    case 3: twinkleColorPalette(); break;
+    case 3: multicolorTwinkle(); break;
     default: lightsOff(); break;
   }
 }
@@ -281,11 +279,13 @@ void loop() {
 
   // if (button.wasClicked()) {
   //   currentMode++;
+  //   stateUpdated = true;
   //   saveSettings();
   // }
 
   // if (button.wasDoubleClicked()) {
   //   currentMode--;
+  //   stateUpdated = true;
   //   saveSettings();
   // }
 
@@ -296,6 +296,7 @@ void loop() {
 
   // if (button.wasHeld()) {
   //   currentColor++;
+  //   stateUpdated = true;
   //   saveSettings();
   // }
 
@@ -305,11 +306,13 @@ void loop() {
     switch (e) {
       case FelixTheCatLED::Button::Event::Click:
         currentMode++;
+        stateUpdated = true;
         saveSettings();
         break;
 
       case FelixTheCatLED::Button::Event::DoubleClick:
         currentMode--;
+        stateUpdated = true;
         saveSettings();
         break;
 
@@ -320,6 +323,7 @@ void loop() {
 
       case FelixTheCatLED::Button::Event::Hold:
         currentColor++;
+        stateUpdated = true;
         saveSettings();
         break;
 
