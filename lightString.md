@@ -30,7 +30,7 @@ constexpr uint32_t color4 = Felix8A::Color::GRAY;
 constexpr uint32_t colorArray[] = { color0, color1, color2, color3, color4 };
 constexpr Felix8A::Palette ColorPalette(colorArray);
 /***** Preset Classic Christmas Tree Light Multi-color Palette *****/
-//constexpr Felix8A::Palette ColorPalette(Felix8A::Sets::ChristmasTree5);
+// const Felix8A::Palette ColorPalette = Felix8A::ChristmasTree;
 ```
 
 ### Initial Variables for Solid Color Palette
