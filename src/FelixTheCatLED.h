@@ -94,6 +94,7 @@ namespace FelixTheCatLED {
       uint8_t getGreen() const { return _color.g; }
       uint8_t getBlue() const { return _color.b; }
 
+      void setHex(uint32_t hex);
       uint32_t getHex() const;
       String getHexString() const;
 

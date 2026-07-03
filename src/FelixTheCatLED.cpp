@@ -214,6 +214,10 @@ namespace FelixTheCatLED {
     _showRGB(_color.r, _color.g, _color.b);
   }
 
+  void RGB::setHex(uint32_t hex) {
+    _showRGB((hex >> 16) & 0xFF, (hex >> 8) & 0xFF, hex & 0xFF);
+  }
+
   uint32_t RGB::getHex() const {
     return _color.hex();
   }
