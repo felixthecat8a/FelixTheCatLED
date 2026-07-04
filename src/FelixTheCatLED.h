@@ -113,7 +113,8 @@ namespace FelixTheCatLED {
       void setMagenta() { setRGB(ColorRGB::MAGENTA); }
       void setRose() { setRGB(ColorRGB::ROSE); }
 
-      void setHSV(int hue, float sat, float val);
+      void setHSV(int hue, float sat = 1.0f, float val = 1.0f);
+      void setHue(int hue) { setHSV(hue, _sat, _val); }
       void setCMYK(float cyan, float magenta, float yellow, float key);
       void setGammaCorrection(bool enabled);
 
@@ -126,8 +127,8 @@ namespace FelixTheCatLED {
       bool _isCommonAnode;
 
       int _hue;
-      float _sat;
-      float _val;
+      float _sat = 1.0f;
+      float _val = 1.0f;
 
       inline uint8_t _applyBrightness(uint8_t c) const {
         return (uint16_t(c) * _brightness) / PWM_MAX;
