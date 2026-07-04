@@ -1,12 +1,12 @@
 ##################################
 # Classes and Data Types
 ##################################
-FelixTheCatLED	KEYWORD1
+FelixTheCatLED	KEYWORD1	FelixTheCatLED
 LED	KEYWORD1
 PWM	KEYWORD1
 RGB	KEYWORD1
 Button	KEYWORD1
-Time	KEYWORD1
+Timer	KEYWORD1
 
 ##################################
 # FelixTheCatLED::LED Methods
@@ -32,9 +32,11 @@ getBrightness	KEYWORD2
 ##################################
 setRGB	KEYWORD2
 getRGB	KEYWORD2
+setHex	KEYWORD2
 getHex	KEYWORD2
 getHexString	KEYWORD2
 setHSV	KEYWORD2
+setHue	KEYWORD2
 setGammaCorrection	KEYWORD2
 setCMYK	KEYWORD2
 setWhite	KEYWORD2
