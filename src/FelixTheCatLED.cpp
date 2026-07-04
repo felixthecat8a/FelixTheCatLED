@@ -229,23 +229,23 @@ namespace FelixTheCatLED {
   }
 
   void RGB::setHSV(int hue, float sat, float val) {
-    hue = constrain(hue, 0, 359);
-    sat = constrain(sat, 0.0, 1.0f);
-    val = constrain(val, 0.0, 1.0f);
+    _hue = constrain(hue, 0, 359);
+    _sat = constrain(sat, 0.0, 1.0f);
+    _val = constrain(val, 0.0, 1.0f);
     const int SECTOR_SIZE = 60;
-    int hueSector = hue / SECTOR_SIZE;
-    float hueFraction = (hue / (float)SECTOR_SIZE) - hueSector;
-    float minVal = val * (1.0f - sat);
-    float intVal1 = val * (1.0f - sat * hueFraction);
-    float intVal2 = val * (1.0f - sat * (1.0f - hueFraction));
+    int hueSector = _hue / SECTOR_SIZE;
+    float hueFraction = (_hue / (float)SECTOR_SIZE) - hueSector;
+    float minVal = _val * (1.0f - _sat);
+    float intVal1 = _val * (1.0f - _sat * hueFraction);
+    float intVal2 = _val * (1.0f - _sat * (1.0f - hueFraction));
     float red, green, blue;
     switch (hueSector % 6) {
-      case 0: red = val, green = intVal2, blue = minVal; break;
-      case 1: red = intVal1, green = val, blue = minVal; break;
-      case 2: red = minVal, green = val, blue = intVal2; break;
-      case 3: red = minVal, green = intVal1, blue = val; break;
-      case 4: red = intVal2, green = minVal, blue = val; break;
-      case 5: red = val, green = minVal, blue = intVal1; break;
+      case 0: red = _val, green = intVal2, blue = minVal; break;
+      case 1: red = intVal1, green = _val, blue = minVal; break;
+      case 2: red = minVal, green = _val, blue = intVal2; break;
+      case 3: red = minVal, green = intVal1, blue = _val; break;
+      case 4: red = intVal2, green = minVal, blue = _val; break;
+      case 5: red = _val, green = minVal, blue = intVal1; break;
       default: red = green = blue = 0; break;
     }
     _showRGB(roundf(red * PWM_MAX), roundf(green * PWM_MAX), roundf(blue * PWM_MAX));

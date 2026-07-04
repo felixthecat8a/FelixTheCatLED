@@ -125,6 +125,10 @@ namespace FelixTheCatLED {
       bool _gammaEnabled;
       bool _isCommonAnode;
 
+      int _hue;
+      float _sat;
+      float _val;
+
       inline uint8_t _applyBrightness(uint8_t c) const {
         return (uint16_t(c) * _brightness) / PWM_MAX;
       }
