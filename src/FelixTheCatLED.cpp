@@ -69,12 +69,7 @@ namespace FelixTheCatLED {
   /* PWM LED */
 
   PWM::PWM(uint8_t pin, LED_type type, int8_t channel)
-    : _pin(pin),
-      _brightness(0),
-      _state(false),
-      _activeLow(false),
-      _type(type),
-      _channel(channel) {}
+    : _pin(pin), _activeLow(false), _type(type), _channel(channel) {}
 
   PWM::~PWM() {
     #ifdef ESP32
@@ -176,10 +171,10 @@ namespace FelixTheCatLED {
 
   /* RGB LED */
 
-  RGB::RGB(uint8_t rPin, uint8_t gPin, uint8_t bPin, bool commonAnode,
+  RGB::RGB(uint8_t rPin, uint8_t gPin, uint8_t bPin, bool isCommonAnode,
     LED_type type, int8_t rCh, int8_t gCh, int8_t bCh)
     : _rPWM(rPin, type, rCh), _gPWM(gPin, type, gCh), _bPWM(bPin, type, bCh),
-      _isCommonAnode(commonAnode), _brightness(255), _gammaEnabled(false) {}
+      _isCommonAnode(isCommonAnode) {}
 
   void RGB::begin() {
     _rPWM.begin();

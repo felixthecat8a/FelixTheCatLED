@@ -67,12 +67,14 @@ namespace FelixTheCatLED {
 
     private:
       void _writeRaw(uint8_t value);
+
       uint8_t _pin;
-      uint8_t _brightness;
-      bool _state;
       bool _activeLow;
       LED_type _type;
       int8_t _channel;
+
+      uint8_t _brightness = 0;
+      bool _state = false;
   };
 
   /* RGB LED */
@@ -120,11 +122,11 @@ namespace FelixTheCatLED {
 
     private:
       PWM _rPWM, _gPWM, _bPWM;
-
-      RGB_Color _color;
-      uint8_t _brightness;
-      bool _gammaEnabled;
       bool _isCommonAnode;
+      RGB_Color _color;
+
+      uint8_t _brightness = 255;
+      bool _gammaEnabled = false;
 
       int _hue;
       float _sat = 1.0f;

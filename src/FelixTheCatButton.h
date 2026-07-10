@@ -17,25 +17,8 @@ namespace FelixTheCatLED {
       Hold
     };
 
-    explicit Button(
-      uint8_t pin,
-      bool activeLow = true,
-      uint16_t debounceTime = 50
-    )
-      : _pin(pin),
-        _activeLow(activeLow),
-        _debounceTime(debounceTime),
-        _holdTime(1000),
-        _multiClickTime(300),
-        _state(State::Idle),
-        _event(Event::None),
-        _lastDebounceTime(0),
-        _pressedTime(0),
-        _lastReleaseTime(0),
-        _stableState(false),
-        _lastReading(false),
-        _holdFired(false),
-        _clickCount(0) {}
+    explicit Button(uint8_t pin, bool activeLow = true, uint16_t debounceTime = 50)
+      : _pin(pin), _activeLow(activeLow), _debounceTime(debounceTime) {}
 
     /* Lifecycle */
     void begin() {
@@ -171,23 +154,23 @@ namespace FelixTheCatLED {
     /* Data */
     uint8_t  _pin;
     bool     _activeLow;
-
     uint16_t _debounceTime;
-    uint16_t _holdTime;
-    uint16_t _multiClickTime;
 
-    State    _state;
-    Event    _event;
+    uint16_t _holdTime = 1000;
+    uint16_t _multiClickTime = 300;
 
-    uint32_t _lastDebounceTime;
-    uint32_t _pressedTime;
-    uint32_t _lastReleaseTime;
+    State    _state = State::Idle;
+    Event    _event = Event::None;
 
-    bool     _stableState;
-    bool     _lastReading;
-    bool     _holdFired;
+    uint32_t _lastDebounceTime  = 0;
+    uint32_t _pressedTime       = 0;
+    uint32_t _lastReleaseTime   = 0;
 
-    uint8_t  _clickCount;
+    bool     _stableState = false;
+    bool     _lastReading = false;
+    bool     _holdFired   = false;
+
+    uint8_t  _clickCount = 0;
   };
 
 } // namespace FelixTheCatLED

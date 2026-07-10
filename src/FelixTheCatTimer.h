@@ -9,12 +9,7 @@ namespace FelixTheCatLED {
 
   class Timer {
   public:
-    explicit Timer(unsigned long interval)
-      : _interval(interval),
-        _startMillis(millis()),
-        _paused(false),
-        _pauseStart(0),
-        _callback(nullptr) {}
+    explicit Timer(unsigned long interval) : _interval(interval), _startMillis(millis()) {}
 
     inline bool tick() {
       if (_paused) return false;
@@ -67,9 +62,7 @@ namespace FelixTheCatLED {
 
     inline void onTick(TimerCallback callback) { _callback = callback; }
 
-    inline void setOneShot(bool enable = true) {
-      _oneShot = enable;
-    }
+    inline void setOneShot(bool enable = true) { _oneShot = enable; }
 
     inline void resetOneShot() {
       _fired = false;
@@ -79,9 +72,11 @@ namespace FelixTheCatLED {
   private:
     unsigned long _interval;
     unsigned long _startMillis;
-    bool _paused;
-    unsigned long _pauseStart;
-    TimerCallback _callback;
+
+    bool _paused = false;
+    unsigned long _pauseStart = 0;
+
+    TimerCallback _callback = nullptr;
 
     bool _oneShot = false;
     bool _fired = false;
