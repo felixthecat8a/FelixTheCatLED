@@ -68,8 +68,8 @@ namespace FelixTheCatLED {
 
   /* PWM LED */
 
-  PWM::PWM(uint8_t pin, LED_type type, int8_t channel)
-    : _pin(pin), _activeLow(false), _type(type), _channel(channel) {}
+  PWM::PWM(uint8_t pin, bool activeLow, LED_t type, int8_t channel)
+    : _pin(pin), _activeLow(activeLow), _type(type), _channel(channel) {}
 
   PWM::~PWM() {
     #ifdef ESP32
@@ -171,19 +171,16 @@ namespace FelixTheCatLED {
 
   /* RGB LED */
 
-  RGB::RGB(uint8_t rPin, uint8_t gPin, uint8_t bPin, bool isCommonAnode,
-    LED_type type, int8_t rCh, int8_t gCh, int8_t bCh)
-    : _rPWM(rPin, type, rCh), _gPWM(gPin, type, gCh), _bPWM(bPin, type, bCh),
-      _isCommonAnode(isCommonAnode) {}
+  RGB::RGB(uint8_t rPin, uint8_t gPin, uint8_t bPin, bool commonAnode,
+    LED_t type, int8_t rCh, int8_t gCh, int8_t bCh)
+    : _rPWM(rPin, commonAnode, type, rCh),
+      _gPWM(gPin, commonAnode, type, gCh),
+      _bPWM(bPin, commonAnode, type, bCh) {}
 
   void RGB::begin() {
     _rPWM.begin();
     _gPWM.begin();
     _bPWM.begin();
-
-    _rPWM.setActiveLow(_isCommonAnode);
-    _gPWM.setActiveLow(_isCommonAnode);
-    _bPWM.setActiveLow(_isCommonAnode);
 
     _showRGB(0, 0, 0);
   }
@@ -211,10 +208,6 @@ namespace FelixTheCatLED {
 
   void RGB::setHex(uint32_t hex) {
     _showRGB((hex >> 16) & 0xFF, (hex >> 8) & 0xFF, hex & 0xFF);
-  }
-
-  uint32_t RGB::getHex() const {
-    return _color.hex();
   }
 
   String RGB::getHexString() const {
